@@ -1,0 +1,228 @@
+%\documentclass[10pt,a4paper]{article}
+
+% headsepline: Linie am oberen Blattrand unterhalb der Seitennummer
+% bibtotoc: Aufnahme des Literaturverzeichnisses ins Inhaltsverzeichnis
+\documentclass[a4paper,headsepline,bibtotoc]{scrreprt}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+% Einstellungen bez. des 'scrreprt'-Stils
+% Caption Schriftstil und -Groesse
+\renewcommand{\capfont}{\footnotesize}
+\renewcommand{\caplabelfont}{\footnotesize\bfseries}
+\typearea{15}  %Einstellung des Verhältnisses Größe des Textes zur Papiergröße
+% Sprache
+\usepackage[german,english]{babel}
+\selectlanguage{german}
+\setlength{\parindent}{0pt}
+
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepgfplotslibrary{external}
+\usepackage{pdfpages}
+\usepackage{lipsum}  
+
+
+
+
+\addto\extrasgerman{\renewcommand{\figurename}{Abb.}}
+\addto\extrasgerman{\renewcommand{\tablename}{Tab.}}
+
+% Bilder
+\usepackage[rflt]{floatflt}
+\usepackage{epsfig,wrapfig}
+
+% Programmablaufplaene (Struktogramme, Nassi-Schneidermann-Diagramme)
+% Dieses Paket ist nicht standardmäßig im CIP-Pool installiert
+% \usepackage{nassi}
+
+% Mathematische Symbole
+\usepackage{amsmath,amssymb}
+
+% Tabellen
+\usepackage{longtable,lscape}
+\usepackage{multirow}
+\usepackage{tabularx}
+
+% Kopfzeilen
+\usepackage{fancyheadings}
+\pagestyle{plain}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection\ #1}{}}
+\lhead[\fancyplain{}{\sl\leftmark}]%
+      {\fancyplain{}{\sl\leftmark}}
+\rhead[\fancyplain{}{\sl\thepage}]%
+      {\fancyplain{}{\sl\thepage}}
+\cfoot{}
+
+% Aufgabenstellung
+\usepackage{iagkopf}
+
+\graphicspath{ {./images/} }
+
+% Listenerscheinung
+\setlength{\itemsep}{0ex}
+\setlength{\parsep}{0ex}
+\setlength{\parskip}{2mm}
+
+
+\begin{document}
+\sloppy
+
+% Seitennumerierung bis zum Beginn der Einleitung auf kleine roemische Zahlen setzen
+\pagenumbering{roman}
+
+% neue Befehle
+%\newcommand{\file}[1]{{\sffamily\slshape #1}}
+\newcommand{\file}[1]{\mdseries\textsl{\textsf{#1}}}
+\newcommand{\sbr}[1]{\texttt{#1}}
+\newcommand{\var}[1]{\mdseries\textsl{\texttt{#1}}}
+\newcommand{\cmd}[1]{\uppercase{\texttt{#1}}}
+
+% Titelseite
+\title{Titel der Abschlussarbeit}
+
+\author{Bachelor/Master Thesis \\
+        by \\
+        Can. Aer./B.\ Sc.\ Vorname Nachname  }
+
+\publishers{conducted at the \\
+            Institute of Aerodynamics and Gas Dynamics \\
+            University of Stuttgart.
+            \\[5ex]
+            Stuttgart, January 2023}
+
+\date{}
+
+
+\selectlanguage{english}
+
+\maketitle
+
+\newpage
+\thispagestyle{empty} 
+\section*{}
+\newpage
+
+% Aufgabenstellung einbinden
+\addcontentsline{toc}{chapter}{Assignment}
+\pagestyle{plain}
+\include{aufgabenstellung}
+
+\newpage
+\thispagestyle{empty} 
+\section*{}
+\newpage
+
+% Übersicht
+\include{erklaerung}
+
+\newpage
+\thispagestyle{empty} 
+\section*{}
+\newpage
+
+\addcontentsline{toc}{chapter}{Abstract}
+\include{abstract}
+
+\newpage
+\thispagestyle{empty} 
+\section*{}
+\newpage
+
+\addcontentsline{toc}{chapter}{Kurzfassung}
+\include{uebersicht}
+
+
+
+
+% Nomenklatur
+\addcontentsline{toc}{chapter}{Nomenclature}
+\include{nomenklatur}
+
+% Neue Kapitel starten auf ungerader Seitenzahl (rechte Seite Buch)
+\newpage
+\thispagestyle{empty} 
+\section*{}
+\newpage
+
+% Abkuerzung
+\addcontentsline{toc}{chapter}{Abbreviations}
+\include{abkuerzung}
+
+\newpage
+\thispagestyle{empty} 
+\section*{}
+\newpage
+
+% Inhaltsverzeichnis
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+
+
+
+
+\pagestyle{plain}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection\ #1}{}}
+\lhead[\fancyplain{}{\sl\leftmark}]%
+      {\fancyplain{}{\sl\leftmark}}
+\rhead[\fancyplain{}{\sl\thepage}]%
+      {\fancyplain{}{\sl\thepage}}
+\cfoot{}
+
+
+\newpage
+\thispagestyle{empty} 
+\section*{}
+\newpage
+
+\newpage
+\thispagestyle{empty} 
+\section*{}
+\newpage
+
+% Seitennumerierung ab der folgenden Einleitung auf arabische Zahlen setzen
+\pagenumbering{arabic}
+
+
+
+% Einleitung
+\include{einleitung}
+
+% Veruchsanordnung bzw. verwendete Software ******************
+
+% Text
+\include{versuchsanordnung}
+
+
+% Ergebnisse ******************
+\include{ergebnisse}
+
+% Zusammenfassung ******************
+
+% Text
+
+
+\include{zusammenfassung}
+
+% Literatur
+\bibliographystyle{literaturstil}
+\bibliography{literatur}
+
+\clearpage
+% Anhang ******************
+
+%Text
+\addcontentsline{toc}{chapter}{Appendix}
+\include{anhang}
+
+
+\end{document}
+
+
+

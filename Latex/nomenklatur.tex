@@ -1,0 +1,181 @@
+\chapter*{Nomenclature}
+\begin{tabular}{lll}
+    \vspace{1mm}
+   $a$              & [-]             & 
+Wave speed\\
+   \vspace{1mm}
+   $a^{l-1}$              & [-]             & Input into MLP layer l\\  
+  \vspace{1mm}
+      $A,a$              & [-]             & Action\\ 
+    \vspace{1mm}
+     $A$              & [-]             & Amplitude of SineWave test case \\
+    \vspace{1mm}
+     $b^l$              & [-]             & Bias of MLP layer l\\  
+     $\underline{\underline{B}}$              & [-]             & Boundary matrix\\   
+    \vspace{1mm}
+    $c$              & [-]             & Constant for target clipping\\
+      \vspace{1mm}
+    $c$              & [-]             & Crashed flag\\
+    \vspace{1mm}
+   $c_{act}$              & [-]             & Diminishing factor for exploring with random action\\
+    \vspace{1mm}
+   $c_1,c_2,c_3$              & [-]             & Reward hyperparameters\\ 
+    \vspace{1mm}
+       $C$              & [-]             & Loss function\\          	\vspace{1mm}
+       $d$              & [-]             & Done flag\\    	
+       \vspace{1mm}
+       $\underline{\underline{D}}$              & [-]             & Derivative matrix\\    
+   \vspace{1mm} 
+  $e$        & [$\text{m}^2\text{s}^{-2}$]            & Total energy per unity volume \\
+  \vspace{1mm}
+     $E, \tilde{E}_{ref}, \tilde{E}^{sub}$              & [-]             & Physical Element, Reference Element, Subelement \\
+   \vspace{1mm}
+     $f$              & [-]             & Convective flux \\
+     \vspace{1mm}
+     $f$              & [-]             & Frequency of SineWave test case \\
+     \vspace{1mm}   
+    $f^\#$              & [-]             & Two-point entropy preserving flux\\  
+   \vspace{1mm}
+      $f_{act}$              & [-]             & Activation function\\     
+   \vspace{1mm}
+   $\underline{F}_{Surf},\underline{F}_{Vol}$              & [-]             & Surface and volume Integral\\  
+   \vspace{1mm}
+      $g$              & [-]             & 
+Numerical flux\\
+   \vspace{1mm}
+   $G$              & [-]             & Return\\ 
+   \vspace{1mm}      
+  $h$              & [$\text{m}^2\text{s}^{-2}\text{kg}^{-1}$]             & Specific enthalpy \\  
+    \vspace{1mm}
+   $I_{jump}$              & [-]             & Jump indicator function\\ 
+       \vspace{1mm}
+   $I_{MOOD}$              & [-]             & MOOD indicator function\\      
+     \vspace{1mm}
+   $I_{sanity}$              & [-]             & Sanity check function\\    
+  \vspace{1mm}
+   $J$              & [-]             & Expected return\\ 
+   \vspace{1mm}
+   $J$              & [-]             & Jacobian for mapping to reference space\\    
+   \vspace{1mm}
+   $J_{ele},J_{stc},J_{tresh}$              & [-]             & Summed up jumps in element/stencil/threshold \\ 
+  \vspace{1mm}
+   $j$              & [-]             & Initial pressure jump \\
+   \vspace{1mm}
+   $K^l$              & [-]             & Number of neurons in previous layer l-1\\         
+   \vspace{1mm}
+   $L,l$              & [-]             & Number of layers inside MLP, layer of MLP\\    
+   \vspace{1mm}
+   $l$              & [-]            & Lagrange function \\
+   \vspace{1mm}
+   $M^l$              & [-]             & Number of neurons in layer l\\         
+   \vspace{1mm}
+   $\underline{\underline{M}}$              & [-]             & Mass matrix\\
+      \vspace{1mm}
+          $n$              & [-]             & 
+Normal vector at element boundary\\   
+\vspace{1mm}
+\end{tabular}
+
+\begin{tabular}{lll}
+   \vspace{1mm}
+   $n_{B}$              & [-]             & Number sample tupels in minibatches\\
+   \vspace{1mm}
+      $n_{epochs}$              & [-]             & Number of epochs\\
+    \vspace{1mm}
+   $n_{updates}$              & [-]             & Number of minibatches\\
+       \vspace{1mm}
+     $N$              & [-]             & Order of the DG polynomial\\     
+   \vspace{1mm}
+   $N_{delay}$              & [-]             & Frequency of policy and target updates \\
+          \vspace{1mm}
+   $N_{elements}$              & [-]             & Number of DG elements \\
+    \vspace{1mm}
+  $p$              & [kg $\text{m}^{-1}$ $\text{s}^{-2}$]             & Pressure \\  
+  \vspace{1mm}
+   $p$              & [-]             & Transition dynamics\\    
+   \vspace{1mm}
+   $Q,q$              & [-]             & Action value function\\
+    \vspace{1mm}  
+      $\underline{\underline{Q}}$              & [-]             & Stiffness matrix\\     
+   \vspace{1mm}
+  $R$              & [J $\text{kg}^{-1}\text{K}^{-1}$]             & Specific gas constant \\   
+   \vspace{1mm}
+   $R,r$              & [-]             & Reward\\ 
+       \vspace{1mm}
+   $s_{pre}$              & [-]             & state prior to normalization\\ 
+   \vspace{1mm}
+      $S,s$              & [-]             & State\\    
+    \vspace{1mm}
+   $\underline{\underline{\tilde{S}}}$              & [-]             & Strong stiffness matrix\\
+   \vspace{1mm}   
+   $\underline{\underline{S}}$              & [-]             & Split stiffness matrix\\
+    \vspace{1mm}   
+   $t$              & [-]             & Time step\\ 
+      \vspace{1mm}
+      $T$              & [-]             & Exponential function for modal indicator\\  
+   	\vspace{1mm}
+  $u$              & [-]             & Conserved variable \\
+    \vspace{1mm}
+    $v$            & [m$\text{s}^{-1}$]            & Velocity \\
+    \vspace{1mm}
+   $V,v$              & [-]             & State value function\\    
+   \vspace{1mm}
+   $w$              & [-]             & Integration weight \\   
+   \vspace{1mm}
+     $w^l$              & [-]             & Weights of MLP layer l\\  
+    \vspace{1mm}
+   $x$              & [-]             & Coordinate in physical space \\
+    \vspace{1mm}
+   $x_{0}$              & [-]             & Jump position between left and right initial state \\
+    \vspace{1mm} 
+   $x_i$              & [-]             & Center point coordinate of physical element \\
+   \vspace{1mm}  
+   $z$              & [-]             & Constant for modal indicator\\  
+   \vspace{1mm}
+   $z^l$              & [-]             & MLP pre-activation output in layer l\\  
+    \vspace{1mm}   
+   $\alpha$              & [-]             & Blending coefficient\\   
+   \vspace{1mm}
+   $\gamma$              & [-]             & Reward discount factor\\       
+   \vspace{1mm}
+   $\delta$              & [-]             & Kronecker delta\\     
+   \vspace{1mm}
+   $\delta^l$              & [-]             & Backpropagation error of layer l\\ 
+      \vspace{1mm}
+           $\delta_{MOOD},\delta_{MOOD,pre}$              & [-]             & Thresholds for MOOD indicator \\ 
+    \vspace{1mm}
+        $\underline{\underline{\delta}},\underline{\underline{\tilde{\delta}}}$              & [-]             & Differentiation matrix, Differentiation matrix without surface integral\\
+    \vspace{1mm}
+      $\Delta x_i$              & [-]             & Length of physical element \\
+   	\vspace{1mm}
+      $\epsilon$              & [-]             & small value /random value\\ 
+      \vspace{1mm}
+   $\eta$              & [-]             & Learning rate\\ 
+   	\vspace{1mm}
+   $\Theta,\Phi$              & [-]             & MLP weights and bias of actor/critic\\ 
+     \vspace{1mm}
+\end{tabular}
+
+
+
+\begin{tabular}{lll}
+   \vspace{1mm}
+  $\kappa$              & [J $\text{kg}^{-1}\text{K}^{-1}$]             & Heat capacity ratio \\   
+   \vspace{1mm}
+   	   $\mu$              & [-]             & Optimal action/Actor policy\\ 
+    \vspace{1mm}
+   $\xi$              & [-]             & Coordinate in reference space \\
+    \vspace{1mm}
+   $\xi_j$              & [-]             & Quadrature nodes \\   
+   \vspace{1mm} 
+   $\pi$              & [-]             & Policy\\ 
+   \vspace{1mm}
+   $\rho$            & [kg$\text{m}^{-3}$]            & Density \\
+       \vspace{1mm}
+   $\rho_{poly}$              & [-]             & Constant for polyak averaging\\
+       \vspace{1mm}    
+   $\Phi$              & [-]             & Basis function \\
+   \vspace{1mm}    
+   $\Omega$              & [-]             & Computational domain \\ 
+    \vspace{1mm}
+\end{tabular}
