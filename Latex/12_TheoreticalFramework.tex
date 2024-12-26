@@ -1,0 +1,63 @@
+\newpage
+\chapter{Theoretical Framework}
+
+the treatment of the fluxes for chemical reactions is another large topic of research \cite{lvDiscontinuousGalerkinMethod2014}
+    but will not be covered in this work and the fluxes are calculated using the XXXXX formulation already implemented in flexi
+\section{Governing Equations for Fluid Flow and Chemistry}
+The chemical solver builds upon the foundations of the fluid solver \textit{Multiphase Flexi} and applies the 
+same governing equations \cite{follUseTabulatedEquations2019}:
+
+\begin{equation}
+\frac{\partial \rho}{\partial t}+\nabla \cdot(\rho \boldsymbol{u})=0
+\end{equation}
+
+\begin{equation}
+\frac{\partial \rho \boldsymbol{u}}{\partial t}+\nabla \cdot(\rho \boldsymbol{u} \boldsymbol{u}+p \underline{\boldsymbol{I}})=\nabla \cdot(\underline{\boldsymbol{\tau}})
+\end{equation}
+
+\begin{equation}
+\frac{\partial E}{\partial t}+\nabla \cdot[(E+p) \boldsymbol{u}]=\nabla \cdot\left(\underline{\boldsymbol{\tau}} \cdot \boldsymbol{u}-\boldsymbol{q}_{\mathrm{c}}-\boldsymbol{q}_{\mathrm{d}}\right)
+\end{equation}
+where $\rho$ is the density, $u = (u, v, w)^T$ is the velocity vector, $p$ is the static pressure, $E$ is the total energy per unit volume, $I$ is the unit tensor, $qc = \lambda \Delta T$ is the specific heat flux with thermal conductivity $\lambda$ and temperature $T$ , $\underline{\boldsymbol{\tau}}$  is the viscous stress tensor and  $q_d$ is the inter species diffusive enthalpy flux. If there is more than one species present, the inter species enthalpy flux changes from $\boldsymbol{q}_{\mathrm{d}} = 0$  to $\boldsymbol{q}_{\mathrm{d}}=\sum_k h_k \boldsymbol{J}_k$.
+The definition of the total energy $E$ departs from the original formulation in \textit{Multiphase Flexi} and uses the enthalpy based formulation found in \cite{fedkiwHighAccuracyNumerical1997}:
+\begin{equation}
+    E=-p+\frac{\rho\left(\boldsymbol{u}^2\right)}{2}+\rho h
+\end{equation}
+where $h$ is the specific enthalpy. The specific enthalpy plays a central role in the calculation of the heat release of the chemical reactions. Including the specific enthalpy in the calculation of the total energy eases the calculation of the heat realease. 
+
+
+The evolution of the $k+1$ individual species is described by $k$ additional continuity equations. The $k+1$ species is evolved through the overall mass conservation:
+\begin{equation} \label{eq_species}
+\frac{\partial \rho Y_k}{\partial t}+\nabla \cdot\left(\rho Y_k \boldsymbol{u}\right)=\nabla \cdot\left(-\boldsymbol{J}_k\right),
+\end{equation}
+\begin{equation}\label{eq_diffusion}
+ J_k=\underbrace{-\rho D_k \nabla Y_k}_{\text {Fickian law }}-\rho Y_k \sum_j\left(D_j \nabla Y_j\right) 
+\end{equation}
+where $D_k$ is the species diffusion coefficient, $Y = (Y1,  Y2, . . .)^T$ with $Y_k = \frac{\rho _k}{\rho}$  is the mass fraction for each species, and $J_k$ is a Fickian diffusion approximation. The second term in \ref{eq_diffusion} is a correction term that recovers $\sum_k \boldsymbol{J}_k=0$ to ensure mass conservation in the case of large diffusion fluxes. 
+
+Properties for the last species can be calculated via the following relations:
+\begin{equation}
+    \sum_i^{k+1} Y_i=1, \quad \sum_i^{k+1} \rho_i=\rho
+\end{equation}
+
+This approach treats the mixture as one single compressible fluid with a single species-averaged density, momentum, and energy and is the standard appproach for handling multispecies flows as it is used in numerous other implementations of multispecies flows \cite{fedkiwHighAccuracyNumerical1997} , \cite{keeChemicallyReactingFlow2003}, \cite{lvDiscontinuousGalerkinMethod2014}. 
+
+\subsection{Thermodynamic properties of ideal gas mixtures}
+\subsection{Expansion of NSE for chemistry}
+To include the effects of chemical reactions in the governing equations the approach by \cite{fedkiwHighAccuracyNumerical1997} is followed and the partial density equations \ref{eq_species} are extended with a source term $S$ that represents the production or consumption of species due to the chemical reactions:
+\begin{equation} \label{eq_species_chem}
+    \frac{\partial \rho Y_k}{\partial t}+\nabla \cdot\left(\rho Y_k \boldsymbol{u}\right)=\nabla \cdot\left(-\boldsymbol{J}_k\right)+S_k
+    \end{equation}
+    \begin{equation}
+    S_k=M_k \sum_{j=1}^{J} \nu_{k j} \omega_j
+\end{equation}
+where $M_k$ is the molar mass of species $k$, $J$ is the number of reactions, $\nu_{k j}$ is the net molar coefficient of species $k$ in reaction $j$, and $\omega_j$ is the net reaction rate of reaction $j$.
+
+The source term of the energy equation is not changed as the chemical reactions are not a source of heat. The energy of the chemical bonds is included in the enthalpy term of the total energy. Therefore the chemical reactions represent a shift in the internal energy from the chemical bonds to the temperature of the fluid and vis versa. As a result the total energy remains constant during the chemical reactions \cite{keeChemicallyReactingFlow2003}.
+
+\section{Kinetics of Chemical Reactions}
+\subsection{Finite rate calculations}
+\subsection{Equilibirum calculations}
+
+\section{Chemical jacobian}
+

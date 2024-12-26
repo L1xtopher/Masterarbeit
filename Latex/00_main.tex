@@ -111,7 +111,7 @@
 % Aufgabenstellung einbinden
 \addcontentsline{toc}{chapter}{Assignment}
 \pagestyle{plain}
-\include{aufgabenstellung}
+\include{Latex/01_aufgabenstellung}
 
 \newpage
 \thispagestyle{empty} 
@@ -119,7 +119,7 @@
 \newpage
 
 % �bersicht
-\include{erklaerung}
+\include{Latex/02_erklaerung}
 
 \newpage
 \thispagestyle{empty} 
@@ -127,22 +127,18 @@
 \newpage
 
 \addcontentsline{toc}{chapter}{Abstract}
-\include{abstract}
+\pagestyle{plain}
+\include{Latex/03_abstract}
 
 \newpage
 \thispagestyle{empty} 
 \section*{}
 \newpage
 
-\addcontentsline{toc}{chapter}{Kurzfassung}
-\include{uebersicht}
-
-
-
-
 % Nomenklatur
 \addcontentsline{toc}{chapter}{Nomenclature}
-\include{nomenklatur}
+\pagestyle{plain}
+\include{Latex/04_nomenklatur}
 
 % Neue Kapitel starten auf ungerader Seitenzahl (rechte Seite Buch)
 \newpage
@@ -152,7 +148,7 @@
 
 % Abkuerzung
 \addcontentsline{toc}{chapter}{Abbreviations}
-\include{abkuerzung}
+\include{Latex/05_abkuerzung}
 
 \newpage
 \thispagestyle{empty} 
@@ -162,9 +158,6 @@
 % Inhaltsverzeichnis
 \addcontentsline{toc}{chapter}{Table of Contents}
 \tableofcontents
-
-
-
 
 \pagestyle{plain}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
@@ -181,45 +174,40 @@
 \section*{}
 \newpage
 
-\newpage
-\thispagestyle{empty} 
-\section*{}
-\newpage
-
 % Seitennumerierung ab der folgenden Einleitung auf arabische Zahlen setzen
 \pagenumbering{arabic}
 
 
 
 % Einleitung
-\include{einleitung}
+\include{Latex/11_einleitung}
 
-% Veruchsanordnung bzw. verwendete Software ******************
+% Theorieteil
+\include{Latex/12_TheoreticalFramework}
 
-% Text
-\include{versuchsanordnung}
+% Numerische Methodik ******************
+\include{Latex/13_NumericalMethodology}
 
+% Validation
+\include{Latex/14_validation}
 
-% Ergebnisse ******************
-\include{ergebnisse}
+% Ergebnisse
+\include{Latex/15_results}
 
 % Zusammenfassung ******************
-
-% Text
-
-
-\include{zusammenfassung}
+\include{Latex/16_zusammenfassung}
 
 % Literatur
 \bibliographystyle{literaturstil}
-\bibliography{literatur}
+%\bibliography{literatur}
+\bibliography{zotero}
 
 \clearpage
 % Anhang ******************
 
 %Text
 \addcontentsline{toc}{chapter}{Appendix}
-\include{anhang}
+\include{Latex/21_anhang}
 
 
 \end{document}
